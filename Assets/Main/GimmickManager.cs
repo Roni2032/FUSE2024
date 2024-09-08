@@ -31,24 +31,32 @@ public class GimmickManager : MonoBehaviour
             for (int i = 0; i < putObject.transform.childCount; i++)
             {
                 putObject.transform.GetChild(i).GetComponent<BoxCollider>().isTrigger = true;
-        }
+                putObject.transform.GetChild(i).GetComponent<MeshRenderer>().material.color = new Color(1, 1, 1, 0.5f);
+            }
         }
     }
 
     Vector3 GetMousePosition()
     {
         Vector3 mousePosition = Input.mousePosition;
-        mousePosition.z = 10.0f;
+        mousePosition.z = 23.0f;
         Vector3 worldPosition = Camera.main.ScreenToWorldPoint(mousePosition);
         worldPosition.z = 0.0f;
         return worldPosition;
     }
 
-    void PushPreviewGimmickButton(int num)
+    public void PushPreviewGimmickButton(int num)
     {
         if(num >= gimmickObjects.Length)
         {
             num = gimmickObjects.Length - 1;
+        }
+
+        putObject = Instantiate(gimmickObjects[num], GetMousePosition(), Quaternion.identity);
+        for (int i = 0; i < putObject.transform.childCount; i++)
+        {
+            putObject.transform.GetChild(i).GetComponent<BoxCollider>().isTrigger = true;
+            putObject.transform.GetChild(i).GetComponent<MeshRenderer>().material.color = new Color(1, 1, 1, 0.5f);
         }
     }
 }
