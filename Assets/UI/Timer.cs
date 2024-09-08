@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour
 {
+    [SerializeField] string m_sceneName;
     public Image m_timer;
     public float m_time;
     float m_currentTime;
@@ -21,6 +23,12 @@ public class Timer : MonoBehaviour
 
         m_timer.fillAmount = m_currentTime / m_time;
         Debug.Log(m_currentTime);
+
+        if(m_currentTime < 0)
+        {
+            m_currentTime = 0;
+            SceneManager.LoadScene(m_sceneName);
+        }
     }
 
 
