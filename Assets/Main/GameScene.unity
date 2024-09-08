@@ -1125,7 +1125,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7384311342662137808, guid: aaae0ddeaa0c2f8418cf5d12e1e365a3, type: 3}
       propertyPath: m_time
-      value: 5
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 7384311342662137808, guid: aaae0ddeaa0c2f8418cf5d12e1e365a3, type: 3}
       propertyPath: m_sceneName
