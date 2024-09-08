@@ -19,15 +19,21 @@ public class GimmickManager : MonoBehaviour
     {
         if (putObject != null)
         {
-            putObject.transform.position = GetMousePosition();
+            Vector3 mousePosition = GetMousePosition();
+            float scale = putObject.GetComponent<Gimmick>().GetPutScale();
+
+            mousePosition.x = Mathf.Clamp(mousePosition.x, -5.0f + scale, 5.0f - scale);
+            mousePosition.y = Mathf.Clamp(mousePosition.y, -5.0f + scale, 12.0f - scale);
+
+            putObject.transform.position = mousePosition;
             if (Input.GetMouseButtonDown(0))
             {
-                Instantiate(gimmickObjects[0], GetMousePosition(), Quaternion.identity);
+                Instantiate(gimmickObjects[1], mousePosition, Quaternion.identity);
             }
         }
         if (Input.GetMouseButtonDown(1) && putObject == null)
         {
-            putObject = Instantiate(gimmickObjects[0], GetMousePosition(), Quaternion.identity);
+            putObject = Instantiate(gimmickObjects[1], GetMousePosition(), Quaternion.identity);
             for (int i = 0; i < putObject.transform.childCount; i++)
             {
                 putObject.transform.GetChild(i).GetComponent<BoxCollider>().isTrigger = true;
@@ -35,7 +41,7 @@ public class GimmickManager : MonoBehaviour
             }
         }
     }
-
+    
     Vector3 GetMousePosition()
     {
         Vector3 mousePosition = Input.mousePosition;
