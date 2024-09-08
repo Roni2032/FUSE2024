@@ -45,7 +45,7 @@ public class GimmickManager : MonoBehaviour
         return worldPosition;
     }
 
-    void PushPreviewGimmickButton(int num)
+    public void PushPreviewGimmickButton(int num)
     {
         if(num >= gimmickObjects.Length)
         {
