@@ -29,6 +29,7 @@ public class GimmickManager : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 Instantiate(gimmickObjects[1], mousePosition, Quaternion.identity);
+                SoundManager.PlaySE(SoundManager.SE.SET_X);
             }
         }
         if (Input.GetMouseButtonDown(1) && putObject == null)

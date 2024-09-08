@@ -6,6 +6,7 @@ public class ScoreArea : MonoBehaviour
 {
     [SerializeField] int score;
     [SerializeField]ScoreManager scoreManager;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +25,7 @@ public class ScoreArea : MonoBehaviour
         {
             scoreManager.AddScore(score);
             Destroy(other.gameObject);
+            SoundManager.PlaySE(SoundManager.SE.GET_MONEY);
         }
     }
 }
