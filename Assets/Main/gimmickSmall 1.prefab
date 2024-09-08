@@ -93,7 +93,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 200
-  putRate: 30
+  putRate: 600
   putScale: 1
 --- !u!1 &672967824539527280
 GameObject:

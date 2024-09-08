@@ -25,7 +25,7 @@ public class ScoreArea : MonoBehaviour
         {
             scoreManager.AddScore(score);
             Destroy(other.gameObject);
-            //SoundManager.PlaySE(SoundManager.SE.GET_MONEY);
+            SoundManager.PlaySE(SoundManager.SE.GET_MONEY);
         }
     }
 }

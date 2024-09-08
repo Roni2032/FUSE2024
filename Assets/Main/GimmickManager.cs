@@ -49,7 +49,7 @@ public class GimmickManager : MonoBehaviour
             if (Input.GetMouseButtonDown(1))
             {
                 putObject.GetComponent<Gimmick>().ChangeSpin();
-                SoundManager.PlaySE(SoundManager.SE.GET_MONEY);
+                SoundManager.PlaySE(SoundManager.SE.FLIP);
             }
         }
         
