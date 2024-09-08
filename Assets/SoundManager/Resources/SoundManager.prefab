@@ -49,9 +49,10 @@ MonoBehaviour:
   sourceBGM: {fileID: 8542740001773345238}
   sourceSFX: {fileID: 1047418394267611512}
   clips:
-  - {fileID: 8300000, guid: 095c2a9c4ac84394eade4c640aae36d7, type: 3}
+  - {fileID: 8300000, guid: 136e47861ac54fe44b1d6518334ffc6b, type: 3}
   - {fileID: 8300000, guid: 84ef5adc5e4891b4e9c0786070628c5b, type: 3}
   - {fileID: 8300000, guid: 7ad629b344d6a7840bce92fef4e8e2bf, type: 3}
+  - {fileID: 8300000, guid: 095c2a9c4ac84394eade4c640aae36d7, type: 3}
 --- !u!82 &8542740001773345238
 AudioSource:
   m_ObjectHideFlags: 0
