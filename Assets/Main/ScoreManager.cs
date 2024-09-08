@@ -4,7 +4,7 @@ using UnityEngine;
 //スコア（お金の管理です）
 public class ScoreManager : MonoBehaviour
 {
-    private int totalScore;//現在の合計スコア
+    public static int totalScore;//現在の合計スコア
 
     public void AddScore(int score)//スコアがプラスする
     {
@@ -27,7 +27,7 @@ public class ScoreManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        DontDestroyOnLoad(this);//シーン移行しても自分自身を消去しない
     }
 
     // Update is called once per frame
