@@ -28,18 +28,29 @@ public class GimmickManager : MonoBehaviour
             putObject.transform.position = mousePosition;
             if (Input.GetMouseButtonDown(0))
             {
-                Instantiate(gimmickObjects[1], mousePosition, Quaternion.identity);
+                Gimmick gimmick = Instantiate(gimmickObjects[1], mousePosition, Quaternion.identity).GetComponent<Gimmick>();
                 SoundManager.PlaySE(SoundManager.SE.SET_X);
+                gimmick.SetSpin(putObject.GetComponent<Gimmick>().GetSpin());
+                Destroy(putObject);
+                putObject = null;
             }
         }
-        if (Input.GetMouseButtonDown(1) && putObject == null)
+        if (Input.GetMouseButtonDown(1))
         {
-            putObject = Instantiate(gimmickObjects[1], GetMousePosition(), Quaternion.identity);
-            for (int i = 0; i < putObject.transform.childCount; i++)
+            if (putObject == null)
             {
-                putObject.transform.GetChild(i).GetComponent<BoxCollider>().isTrigger = true;
-                putObject.transform.GetChild(i).GetComponent<MeshRenderer>().material.color = new Color(1, 1, 1, 0.5f);
+                putObject = Instantiate(gimmickObjects[1], GetMousePosition(), Quaternion.identity);
+                for (int i = 0; i < putObject.transform.childCount; i++)
+                {
+                    putObject.transform.GetChild(i).GetComponent<BoxCollider>().isTrigger = true;
+                    putObject.transform.GetChild(i).GetComponent<MeshRenderer>().material.color = new Color(1, 1, 1, 0.5f);
+                }
             }
+            else
+            {
+                putObject.GetComponent<Gimmick>().ChangeSpin();
+            }
+            
         }
     }
     
