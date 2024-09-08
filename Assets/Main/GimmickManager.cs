@@ -24,8 +24,8 @@ public class GimmickManager : MonoBehaviour
             Vector3 mousePosition = GetMousePosition();
             float scale = putObject.GetComponent<Gimmick>().GetPutScale();
 
-            mousePosition.x = Mathf.Clamp(mousePosition.x, -4.0f + scale, 4.0f - scale);
-            mousePosition.y = Mathf.Clamp(mousePosition.y, -4.0f + scale, 11.0f - scale);
+            mousePosition.x = Mathf.Clamp(mousePosition.x, -9.5f + scale, 9.5f - scale);
+            mousePosition.y = Mathf.Clamp(mousePosition.y, 1.0f + scale, 19.0f - scale);
 
             putObject.transform.position = mousePosition;
             if (Input.GetMouseButtonDown(0))
