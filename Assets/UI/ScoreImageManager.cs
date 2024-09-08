@@ -21,7 +21,7 @@ public class ScoreImageManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //m_score = m_scoreManager.GetScore();
+        m_score = m_scoreManager.GetScore();
 
         if (m_score > 99999)
         {
