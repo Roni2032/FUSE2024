@@ -48,7 +48,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 60
   putRate: 0
-  putScale: 2
+  putScale: 1
+  isSpinRight: 1
 --- !u!1 &3711573281178736110
 GameObject:
   m_ObjectHideFlags: 0
