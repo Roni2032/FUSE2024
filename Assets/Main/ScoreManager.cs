@@ -26,7 +26,6 @@ public class ScoreManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        DontDestroyOnLoad(this);//シーン移行しても自分自身を消去しない
         SoundManager.PlayBGM();
     }
 
