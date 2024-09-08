@@ -52,7 +52,10 @@ public class SoundManager : MonoBehaviour
 	//--------------------------------------------------------------------------------
 	static void CheckInstance()
 	{
-		if(instance == null){ Resources.Load("SoundManager"); }
+		if(instance == null)
+		{
+			GameObject obj = Instantiate<GameObject>(Resources.Load("SoundManager") as GameObject);
+		}
 	}
 
 	//--------------------------------------------------------------------------------
