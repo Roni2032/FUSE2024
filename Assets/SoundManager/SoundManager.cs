@@ -48,10 +48,19 @@ public class SoundManager : MonoBehaviour
 	}
 
 	//--------------------------------------------------------------------------------
+	// インスタンスの確認  
+	//--------------------------------------------------------------------------------
+	static void CheckInstance()
+	{
+		if(instance == null){ Resources.Load("SoundManager"); }
+	}
+
+	//--------------------------------------------------------------------------------
 	// BGM再生  
 	//--------------------------------------------------------------------------------
 	public static void PlayBGM()
 	{
+		CheckInstance();
 		instance.sourceBGM.Play();
 	}
 
@@ -60,6 +69,7 @@ public class SoundManager : MonoBehaviour
 	//--------------------------------------------------------------------------------
 	public static void StopBGM()
 	{
+		CheckInstance();
 		instance.sourceBGM.Stop();
 	}
 
@@ -68,6 +78,7 @@ public class SoundManager : MonoBehaviour
 	//--------------------------------------------------------------------------------
 	public static void PlaySE(SE se)
 	{
+		CheckInstance();
 		instance.sourceSFX.PlayOneShot(instance.clips[(int)se]);
 	}
 
