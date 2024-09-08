@@ -5,6 +5,7 @@ using UnityEngine;
 public class Gimmick : MonoBehaviour
 {
     [SerializeField] float speed;
+    [SerializeField] int putRate;
     // Start is called before the first frame update
     void Start()
     {
