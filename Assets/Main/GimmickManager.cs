@@ -6,6 +6,7 @@ using UnityEngine;
 public class GimmickManager : MonoBehaviour
 {
     [SerializeField] GameObject[] gimmickObjects;
+    [SerializeField] ScoreManager scoreManager;
 
     GameObject putObject;
     int putIndex = 2;
@@ -21,39 +22,37 @@ public class GimmickManager : MonoBehaviour
     {
         if (putObject != null)
         {
+            bool isCanPut = true;
             Vector3 mousePosition = GetMousePosition();
             float scale = putObject.GetComponent<Gimmick>().GetPutScale();
 
-            mousePosition.x = Mathf.Clamp(mousePosition.x, -9.5f + scale, 9.5f - scale);
-            mousePosition.y = Mathf.Clamp(mousePosition.y, 1.0f + scale, 19.0f - scale);
-
+            if(mousePosition.x > 9.5f - scale || mousePosition.x < -9.5f + scale || mousePosition.y > 19.0f - scale || mousePosition.y < 1.0f + scale)
+            {
+                isCanPut = false;
+                putObject.GetComponentInChildren<MeshRenderer>().material.color = new Color(1, 0, 0, 0.5f);
+                
+            }
+            else
+            {
+                putObject.GetComponentInChildren<MeshRenderer>().material.color = new Color(1, 1, 1, 0.5f);
+            }
             putObject.transform.position = mousePosition;
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) && isCanPut)
             {
                 Gimmick gimmick = Instantiate(gimmickObjects[putIndex], mousePosition, Quaternion.identity).GetComponent<Gimmick>();
                 SoundManager.PlaySE(SoundManager.SE.SET_X);
                 gimmick.SetSpin(putObject.GetComponent<Gimmick>().GetSpin());
+                scoreManager.SubtractScore(gimmick.GetRate());
                 Destroy(putObject);
                 putObject = null;
             }
-        }
-        if (Input.GetMouseButtonDown(1))
-        {
-            if (putObject == null)
-            {
-                putObject = Instantiate(gimmickObjects[putIndex], GetMousePosition(), Quaternion.identity);
-                for (int i = 0; i < putObject.transform.childCount; i++)
-                {
-                    putObject.transform.GetChild(i).GetComponent<BoxCollider>().isTrigger = true;
-                    putObject.transform.GetChild(i).GetComponent<MeshRenderer>().material.color = new Color(1, 1, 1, 0.5f);
-                }
-            }
-            else
+            if (Input.GetMouseButtonDown(1))
             {
                 putObject.GetComponent<Gimmick>().ChangeSpin();
+                SoundManager.PlaySE(SoundManager.SE.FLIP);
             }
-            
         }
+        
     }
     
     Vector3 GetMousePosition()
@@ -73,10 +72,11 @@ public class GimmickManager : MonoBehaviour
         }
 
         putObject = Instantiate(gimmickObjects[num], GetMousePosition(), Quaternion.identity);
-        for (int i = 0; i < putObject.transform.childCount; i++)
+        putObject.GetComponentInChildren<MeshRenderer>().material.color = new Color(1, 1, 1, 0.5f);
+        for (int i = 0; i < putObject.transform.childCount - 1; i++)
         {
             putObject.transform.GetChild(i).GetComponent<BoxCollider>().isTrigger = true;
-            putObject.transform.GetChild(i).GetComponent<MeshRenderer>().material.color = new Color(1, 1, 1, 0.5f);
+            
         }
         putIndex = num;
     }

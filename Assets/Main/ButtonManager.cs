@@ -27,6 +27,7 @@ public class ButtonManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         score = scoreManager.GetScore();
         btn.interactable = (score >= cost);//スコアがコストより高ければオンになる
 

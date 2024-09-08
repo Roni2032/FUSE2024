@@ -1,33 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//ƒXƒRƒAi‚¨‹à‚ÌŠÇ—‚Å‚·j
+//ã‚¹ã‚³ã‚¢ï¼ˆãŠé‡‘ã®ç®¡ç†ã§ã™ï¼‰
 public class ScoreManager : MonoBehaviour
 {
-    public static int totalScore;//Œ»İ‚Ì‡ŒvƒXƒRƒA
+    public static int totalScore;//ç¾åœ¨ã®åˆè¨ˆã‚¹ã‚³ã‚¢
 
-    public void AddScore(int score)//ƒXƒRƒA‚ªƒvƒ‰ƒX‚·‚é
+    public void AddScore(int score)//ã‚¹ã‚³ã‚¢ãŒãƒ—ãƒ©ã‚¹ã™ã‚‹
     {
         totalScore += score;
         Debug.Log("SCORE : " + totalScore);
     }
-    public void SubtractScore(int score)//ƒXƒRƒA‚ªƒ}ƒCƒiƒX‚·‚é
+    public void SubtractScore(int score)//ã‚¹ã‚³ã‚¢ãŒãƒã‚¤ãƒŠã‚¹ã™ã‚‹
     {
         totalScore -= score;
         Debug.Log("SCORE :" + totalScore);
     }
 
-    public int GetScore()//ƒXƒRƒA‚ÌƒQƒbƒ^[
+    public int GetScore()//ã‚¹ã‚³ã‚¢ã®ã‚²ãƒƒã‚¿ãƒ¼
     {
         return totalScore;
     }
 
 
-
     // Start is called before the first frame update
     void Start()
     {
-        DontDestroyOnLoad(this);//ƒV[ƒ“ˆÚs‚µ‚Ä‚à©•ª©g‚ğÁ‹‚µ‚È‚¢
+        DontDestroyOnLoad(this);//ã‚·ãƒ¼ãƒ³ç§»è¡Œã—ã¦ã‚‚è‡ªåˆ†è‡ªèº«ã‚’æ¶ˆå»ã—ãªã„
+        SoundManager.PlayBGM();
     }
 
     // Update is called once per frame

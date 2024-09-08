@@ -15,6 +15,7 @@ public class SoundManager : MonoBehaviour
 		GET_MONEY,	// お金の獲得
 		SET_X,		// 回転バーの設置 
 		TIMEUP,		// 時間切れ 
+		FLIP,		// 左右反転 
 	}
 
 

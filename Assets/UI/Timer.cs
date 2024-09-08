@@ -19,6 +19,15 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Time.timeScale == 0)
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                Time.timeScale = 1;
+                SceneManager.LoadScene(m_sceneName);
+            }
+            return;
+        }
         m_currentTime -= Time.deltaTime;
 
         m_timer.fillAmount = m_currentTime / m_time;
@@ -27,7 +36,8 @@ public class Timer : MonoBehaviour
         if(m_currentTime < 0)
         {
             m_currentTime = 0;
-            SceneManager.LoadScene(m_sceneName);
+            Time.timeScale = 0;
+            
         }
     }
 
