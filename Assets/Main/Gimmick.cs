@@ -6,7 +6,12 @@ public class Gimmick : MonoBehaviour
 {
     [SerializeField] float speed;
     [SerializeField] int putRate;
+    [SerializeField] float putScale;
     // Start is called before the first frame update
+    public float GetPutScale()
+    {
+        return putScale;
+    }
     void Start()
     {
         
