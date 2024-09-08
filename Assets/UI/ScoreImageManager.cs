@@ -7,7 +7,8 @@ using UnityEngine.UI;
 public class ScoreImageManager : MonoBehaviour
 {
     public NumberImage[] m_NumberImage;
-    public int m_score = 0;
+    public ScoreManager m_scoreManager;
+    int m_score = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +21,8 @@ public class ScoreImageManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        m_score = m_scoreManager.GetScore();
+
         if (m_score > 99999)
         {
             m_score = 99999;
