@@ -182,7 +182,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   btn: {fileID: 89547813}
-  generateObj: {fileID: 4138108980211683878, guid: 35f7e6dcaa50041429349473a9db7ba0, type: 3}
+  generateObj: {fileID: 17538804713533103, guid: 517f05c3102b5ac4bb8c461598c97f14, type: 3}
 --- !u!114 &89547813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1286,7 +1286,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   btn: {fileID: 838959281}
-  generateObj: {fileID: 4138108980211683878, guid: 35f7e6dcaa50041429349473a9db7ba0, type: 3}
+  generateObj: {fileID: 7827429996250703327, guid: b64f1ca9163f21a40a3ef88de9c58228, type: 3}
 --- !u!114 &838959281
 MonoBehaviour:
   m_ObjectHideFlags: 0
