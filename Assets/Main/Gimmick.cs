@@ -7,7 +7,8 @@ public class Gimmick : MonoBehaviour
     [SerializeField] float speed;
     [SerializeField] int putRate;
     [SerializeField] float putScale;
-    [SerializeField] bool isSpinRight = false;
+
+    bool isSpinRight = false;
 
     public void ChangeSpin()
     {
