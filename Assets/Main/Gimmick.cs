@@ -10,6 +10,10 @@ public class Gimmick : MonoBehaviour
 
     bool isSpinRight = false;
 
+    public int GetRate()
+    {
+        return putRate;
+    }
     public void ChangeSpin()
     {
         isSpinRight = isSpinRight ? false : true;
