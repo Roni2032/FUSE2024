@@ -5,12 +5,13 @@ using UnityEngine.UI;
 
 public class ButtonManager : MonoBehaviour
 {
-    [SerializeField] int cost;
     [SerializeField] Button btn;
+    [SerializeField] GameObject generateObj;
     private ScoreManager scoreManager;
     private int score;
+    private float cost;
 
-    public int GetCost()//コストを渡す
+    public float GetCost()//コストを渡す
     {
         return cost;
     }
@@ -18,6 +19,7 @@ public class ButtonManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        cost = generateObj.GetComponent<Gimmick>().GetRate();//コストを取得
         GameObject obj = GameObject.Find("ScoreManager");//スコアマネージャーを取得
         scoreManager = obj.GetComponent<ScoreManager>();
     }
