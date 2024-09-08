@@ -37,7 +37,8 @@ public class Timer : MonoBehaviour
         {
             m_currentTime = 0;
             Time.timeScale = 0;
-            
+            SoundManager.PlaySE(SoundManager.SE.TIMEUP);
+            SoundManager.StopBGM();
         }
     }
 
