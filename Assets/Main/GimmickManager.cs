@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,7 @@ public class GimmickManager : MonoBehaviour
     [SerializeField] GameObject[] gimmickObjects;
 
     GameObject putObject;
+    int putIndex = 2;
 
 
     void Start()
@@ -22,13 +24,13 @@ public class GimmickManager : MonoBehaviour
             Vector3 mousePosition = GetMousePosition();
             float scale = putObject.GetComponent<Gimmick>().GetPutScale();
 
-            mousePosition.x = Mathf.Clamp(mousePosition.x, -5.0f + scale, 5.0f - scale);
-            mousePosition.y = Mathf.Clamp(mousePosition.y, -5.0f + scale, 12.0f - scale);
+            mousePosition.x = Mathf.Clamp(mousePosition.x, -4.0f + scale, 4.0f - scale);
+            mousePosition.y = Mathf.Clamp(mousePosition.y, -4.0f + scale, 11.0f - scale);
 
             putObject.transform.position = mousePosition;
             if (Input.GetMouseButtonDown(0))
             {
-                Gimmick gimmick = Instantiate(gimmickObjects[1], mousePosition, Quaternion.identity).GetComponent<Gimmick>();
+                Gimmick gimmick = Instantiate(gimmickObjects[putIndex], mousePosition, Quaternion.identity).GetComponent<Gimmick>();
                 SoundManager.PlaySE(SoundManager.SE.SET_X);
                 gimmick.SetSpin(putObject.GetComponent<Gimmick>().GetSpin());
                 Destroy(putObject);
@@ -39,7 +41,7 @@ public class GimmickManager : MonoBehaviour
         {
             if (putObject == null)
             {
-                putObject = Instantiate(gimmickObjects[1], GetMousePosition(), Quaternion.identity);
+                putObject = Instantiate(gimmickObjects[putIndex], GetMousePosition(), Quaternion.identity);
                 for (int i = 0; i < putObject.transform.childCount; i++)
                 {
                     putObject.transform.GetChild(i).GetComponent<BoxCollider>().isTrigger = true;
@@ -76,5 +78,6 @@ public class GimmickManager : MonoBehaviour
             putObject.transform.GetChild(i).GetComponent<BoxCollider>().isTrigger = true;
             putObject.transform.GetChild(i).GetComponent<MeshRenderer>().material.color = new Color(1, 1, 1, 0.5f);
         }
+        putIndex = num;
     }
 }

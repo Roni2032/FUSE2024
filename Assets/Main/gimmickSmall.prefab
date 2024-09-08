@@ -240,7 +240,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd7757abcab608246b0ef9eb2f2508e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 30
+  speed: 50
   putRate: 0
   putScale: 1
-  isSpinRight: 1
