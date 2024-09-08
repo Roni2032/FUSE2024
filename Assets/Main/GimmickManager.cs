@@ -6,6 +6,7 @@ using UnityEngine;
 public class GimmickManager : MonoBehaviour
 {
     [SerializeField] GameObject[] gimmickObjects;
+    [SerializeField] ScoreManager scoreManager;
 
     GameObject putObject;
     int putIndex = 2;
